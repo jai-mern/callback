@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to Independence Day</title>
+</head>
+<body>
+    <h1>Countdown:</h1>
+    <div id="countdown"></div>
+<script>
+   // Countdown function with callback
+function countdown(callback) {
+    let count = 10;
+
+    // Recursive function to decrement count and display
+    function decrementAndDisplay() {
+        document.getElementById('countdown').innerHTML = count;
+
+        if (count === 1) {
+            // If count reaches 1, execute the callback
+            callback();
+        } else {
+            count--;
+            // Set timeout for 1 second and recursively call the function
+            setTimeout(decrementAndDisplay, 1000);
+        }
+    }
+
+    // Start the countdown
+    decrementAndDisplay();
+}
+
+// Display "Happy Independence Day" function
+function displayIndependenceDay() {
+    document.getElementById('countdown').innerHTML = "Happy Independence Day!";
+}
+
+// Start the countdown with the displayIndependenceDay callback
+countdown(displayIndependenceDay);
+</script>
+    
+    
+</body>
+</html>
